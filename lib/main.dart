@@ -4,7 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 /// This sample app shows an app with two screens.
 ///
 /// The first route '/' is mapped to [HomeScreen], and the second route
@@ -13,7 +13,10 @@ import 'package:go_router/go_router.dart';
 /// The buttons use context.go() to navigate to each destination. On mobile
 /// devices, each destination is deep-linkable and on the web, can be navigated
 /// to using the address bar.
-void main() => runApp(const MyApp());
+void main() {
+  usePathUrlStrategy();
+  runApp(const MyApp());
+}
 
 /// The route configuration.
 final GoRouter _router = GoRouter(
@@ -28,6 +31,16 @@ final GoRouter _router = GoRouter(
           path: 'details',
           builder: (BuildContext context, GoRouterState state) {
             return const DetailsScreen();
+          },
+        ),
+        GoRoute(
+          path: 'contract/:id',
+          builder: (BuildContext context, GoRouterState state) {
+            return Center(
+              child: Text(
+                 state.pathParameters['id']!.toString(),
+              ),
+            );
           },
         ),
       ],
