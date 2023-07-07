@@ -4,7 +4,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 /// This sample app shows an app with two screens.
 ///
 /// The first route '/' is mapped to [HomeScreen], and the second route
@@ -14,7 +13,6 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 /// devices, each destination is deep-linkable and on the web, can be navigated
 /// to using the address bar.
 void main() {
-  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
